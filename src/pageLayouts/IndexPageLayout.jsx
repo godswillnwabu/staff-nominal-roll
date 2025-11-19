@@ -7,6 +7,9 @@ function IndexPageLayout() {
     return (
         <>
             <Navbar />
+            <div className="pt-[70px] md:pt-[100px] lg:pt-[130px] px-[50px] pb-[80px] md:pb-[55px] w-full h-screen bg-bg-blue/50">
+                <Outlet />
+            </div>
             <Footer />
         </>
     )

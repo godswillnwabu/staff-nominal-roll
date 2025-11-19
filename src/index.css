@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Merriweather+Sans:ital@0;1&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+    --font-fjalla-one: "Fjalla One", sans-serif;
+    --font-merriweather: "Merriweather Sans", sans-serif;
+    --color-bg-blue: #243c5a;
+}
 
 /* :root {
     --clr-bg: #fbfbfb;
