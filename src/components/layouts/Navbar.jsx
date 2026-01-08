@@ -12,7 +12,8 @@ function Navbar() {
                         <img src={AbSG_Logo} alt="Logo" className="w-[50px] md:w-[80px] lg:w-[100px] inline-block mr-2" />
                     </div>
                     <div>
-                        <h1 className="hidden md:inline-block md:text-sm lg:text-base font-fjalla-one tracking-wider">Abia State Goverment <br />
+                        <h1 className="hidden md:inline-block md:text-sm lg:text-base font-fjalla-one tracking-wider">
+                            Abia State Goverment <br />
                             Staff Nominal Roll <br />
                             Ministries, Departments & Agencies
                         </h1>
@@ -20,15 +21,9 @@ function Navbar() {
                 </div>
 
                 <div className="flex items-center gap-10">
-                    {/* <div className="">
-                        <button className="cursor-pointer">
-                            <BsToggleOff className="inline-block text-3xl font-thin"/>
-                        </button>
-                    </div> */}
-
                     <div className="flex md:text-sm lg:text-base font-fjalla-one tracking-wider gap-10">
                         <Link to="/" className="underline underline-offset-4">Dashboard</Link>
-                        <Link to="ministries" className="underline underline-offset-4">Ministries</Link>
+                        <Link to="/ministries" className="underline underline-offset-4">MDAs</Link>
                     </div>
                 </div>
 
