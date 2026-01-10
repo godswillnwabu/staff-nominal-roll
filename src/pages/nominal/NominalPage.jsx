@@ -2,11 +2,12 @@ import { useState } from "react";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useParams, useNavigate } from "react-router-dom";
 import { useStaff } from "../../hooks/useStaff";
-import { useDepartment } from "../../hooks/useDepartmentId";
+import { useMinistry } from "../../hooks/useMinistryId";
+// import { useDepartment } from "../../hooks/useDepartmentId";
 import { ImCross } from "react-icons/im";
 
 function NominalPage() {
-    const { departmentId } = useParams();
+    const { ministryId, departmentId } = useParams();
     const navigate = useNavigate();
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState("");
@@ -14,12 +15,12 @@ function NominalPage() {
     const debouncedSearch = useDebounce(search, 900);
 
     const { data, isFetching } = useStaff({
-        departmentId, page, pageSize: 6, search: debouncedSearch, rank,
+        ministryId, departmentId, page, pageSize: 6, search: debouncedSearch, rank,
     });
-    console.log(data)
 
     const [selected, setSelected] = useState(null);
-    const department = useDepartment(departmentId);
+    // const department = useDepartment(departmentId);
+    const ministry = useMinistry(ministryId);
 
 
     // Utility: fallback photo initials
@@ -34,7 +35,7 @@ function NominalPage() {
         <div className="pt-5">
             <div className="flex flex-col md:flex-row items-center justify-between mb-6">
                 <h1 className="font-fjalla-one text-xl md:text-2xl mb-6 md:mb-0">
-                    {department.data ? department.data.ministry.name : 'Ministry'} - {department.data ? department.data.name : 'Department'} Staff List
+                    {ministry.data ? ministry.data.name : 'Ministry'} - Department List
                 </h1>
 
                 <button

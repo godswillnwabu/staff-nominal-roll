@@ -19,7 +19,7 @@ function MinistriesPage() {
                 {data.items.map(m => (
                     <MinistryCard
                         key={m.id} 
-                        onClick={() => navigate(`/ministries/${m.id}`)}
+                        onClick={() => navigate(`/ministries/${m.id}/departments`)}
                         name={m.name}
                         staffCount={m.staff_count}
                     />

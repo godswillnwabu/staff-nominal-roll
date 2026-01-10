@@ -36,7 +36,7 @@ function DepartmentPage() {
                         key={d.id}
                         name={d.name}
                         staffCount={d.staff_count}
-                        onClick={() => navigate(`/departments/${d.id}`)}
+                        onClick={() => navigate(`/ministries/${ministryId}/departments/${d.id}/staff`)}
                     />
                 ))}
             </div>

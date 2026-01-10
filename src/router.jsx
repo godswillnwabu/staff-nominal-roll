@@ -17,8 +17,8 @@ const router = createBrowserRouter ([
         children: [
             { index: true, element: <DashboardPage /> },
             { path: "/ministries", element: <MinistriesPage /> },
-            { path: "/ministries/:ministryId", element: <DepartmentPage /> },
-            { path: "/departments/:departmentId", element: <NominalPage /> }
+            { path: "/ministries/:ministryId/departments", element: <DepartmentPage /> },
+            { path: "/ministries/:ministryId/departments/:departmentId/staff", element: <NominalPage /> }
         ],
     },
 ]);

@@ -8,9 +8,10 @@ export function useDepartment(id) {
     useEffect(() => {
         if (!id) return;
         getDepartment(id)
+        
             .then(setData);
     }, [id]);
-
+    console.log(getDepartment(id))
     return { data };
 }
 

@@ -23,7 +23,7 @@ function Navbar() {
                 <div className="flex items-center gap-10">
                     <div className="flex md:text-sm lg:text-base font-fjalla-one tracking-wider gap-10">
                         <Link to="/" className="underline underline-offset-4">Dashboard</Link>
-                        <Link to="/ministries" className="underline underline-offset-4">MDAs</Link>
+                        <Link to="ministries" className="underline underline-offset-4">MDAs</Link>
                     </div>
                 </div>
 
