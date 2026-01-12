@@ -59,12 +59,15 @@ function NominalPage() {
 
                 <select
                     value={rank}
-                    onChange={(e) => { setRank(e.target.value); }}
+                    onChange={(e) => { setRank(e.target.value === "All" ? "" : e.target.value)}}
                     className="border p-2 rounded w-full md:w-1/2 outline-none"
                 >
                     <option key="">All</option>
-                    <option key="Director">Director</option>
-                    <option key="Accountant">Accountant</option>
+                    <option key="Director Admin">Director Admin</option>
+                    <option key="Director Account">Director Account</option>
+                    <option key="Director Information">Director Information</option>
+                    <option key="Director Planning">Director Planning</option>
+                    <option key="H.W.S">H.W.S</option>
                 </select>
             </div>
 

@@ -8,13 +8,15 @@ export const getStaff = ({
     search = "",
     rank = ""
 }) => {
-    return apiFetch(
-        `/ministries/${ministryId}/departments/${departmentId}/staff?page=${page}&page_size=${pageSize}`, {
-        params: {
-            page,
-            page_size: pageSize,
-            search: search || undefined,
-            rank: rank || undefined,
-        }
+    const params = new URLSearchParams({
+        page,
+        page_size: pageSize,
     });
+
+    if (search) params.append("search", search);
+    if (rank) params.append("rank", rank);
+
+    return apiFetch(
+        `/ministries/${ministryId}/departments/${departmentId}/staff?${params.toString()}` 
+    );
 };
