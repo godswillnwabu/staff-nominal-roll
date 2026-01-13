@@ -17,6 +17,7 @@ function NominalPage() {
     const { data, isFetching } = useStaff({
         ministryId, departmentId, page, pageSize: 6, search: debouncedSearch, rank,
     });
+    // console.log(data)
 
     const [selected, setSelected] = useState(null);
     // const department = useDepartment(departmentId);
@@ -100,7 +101,7 @@ function NominalPage() {
                                 )}
                             </div>
                             <div className="font-merriweather">
-                                <h2 className="text-lg font-semibold text-gray-900">{s.full_name} ({s.gender})</h2>
+                                <h2 className="text-lg font-semibold text-gray-600">{s.full_name} ({s.gender})</h2>
                                 <p className="text-sm text-gray-600">{s.rank} ({s.level})</p>
                                 <p className="text-sm text-gray-600">{s.post} (Post)</p>
                                 <div className="flex gap-3">
@@ -110,10 +111,10 @@ function NominalPage() {
                                     <p className="text-sm text-gray-600">{s.phone_num}</p>
                                 </div>
                                 <div className="flex gap-3">
-                                    <p className="text-sm text-green-600 font-bold">
+                                    <p className="text-sm text-green-600">
                                         {s.first_appointment}
                                     </p>
-                                    <p className="text-sm text-red-600 font-bold">{s.retirement}</p>
+                                    <p className="text-sm text-red-600">{s.retirement}</p>
                                 </div>
 
                             </div>
@@ -155,8 +156,9 @@ function NominalPage() {
                                 </div>
                             )}
 
-                            <h2 className="text-xl font-semibold">{selected.full_name}</h2>
-                            <p className="text-green-600 font-bold">{selected.rank}</p>
+                            <h2 className="text-xl">{selected.full_name}</h2>
+                            <p className="text-green-600">{selected.rank}</p>
+                            <h3>{selected.staff_id} - Staff ID</h3>
                         </div>
                     </div>
                 </div>
