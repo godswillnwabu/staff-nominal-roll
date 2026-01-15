@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDepartments } from "../../hooks/useDepartments";
-import { useMinistry } from "../../hooks/useMinistryId";
-import DepartmentCard from "../../components/departmentCard/DepartmentCard";
+import { useMinistry } from "../../hooks/useMinistries";
+import CardForMDAs from "../../components/CardForMDAs/Card";
 
 function DepartmentPage() {
     const { ministryId } = useParams();
     const [page, setPage] = useState(1);
-    const { data, loading } = useDepartments({ ministryId, page, pageSize: 9 });
+    const { data, loading, error } = useDepartments({ ministryId, page, pageSize: 9 });
     const ministry = useMinistry(ministryId);
     const navigate = useNavigate();
 
     if (loading) return <p>Loading...</p>;
+    if (error) return <p>Unable to fetch data.</p>;
 
-    const totalPages = Math.ceil(data.total / data.page_size);
+    const totalPages = Math.ceil(data?.total / data?.page_size);
 
     return (
         <div className="pt-5">
@@ -31,11 +32,11 @@ function DepartmentPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {data.items.map(d => (
-                    <DepartmentCard
+                {data?.items?.map(d => (
+                    <CardForMDAs
                         key={d.id}
-                        name={d.name}
-                        staffCount={d.staff_count}
+                        name={`${d.name} -`}
+                        staffCount={`${d.staff_count} staff`}
                         onClick={() => navigate(`/ministries/${ministryId}/departments/${d.id}/staff`)}
                     />
                 ))}

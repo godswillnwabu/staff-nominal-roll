@@ -10,6 +10,5 @@ export function useMinistry(id) {
         getMinistry(id)
             .then(setData);
     }, [id]);
-    // console.log(getMinistry(id))
     return { data };
 }

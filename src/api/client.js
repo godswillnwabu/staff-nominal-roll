@@ -1,15 +1,31 @@
 const API_BASE = "http://localhost:8000";
 
 export async function apiFetch(path, options = {}) {
+    const isFormData = options.body instanceof FormData;
+
     const res = await fetch(`${API_BASE}${path}`, {
-        headers: {"Content-Type": "application/json"},
         ...options,
+        headers: {
+            ...(isFormData ? {} : {"Content-Type": "application/json"}),
+            ...(options.headers || {}),
+        },
     });
 
     if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || "API request failed");
+        let errorText;
+        try {
+            errorText = await res.text();
+        } catch {
+            errorText = "API request failed";
+        }
+        throw new Error(errorText);
     }
 
-    return res.json();
+    // Some endpoints may return no JSON (204 etc)
+    const text = await res.text();
+    try {
+        return text ? JSON.parse(text) : null;
+    } catch {
+        return text;
+    }
 }

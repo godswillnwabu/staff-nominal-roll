@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useParams, useNavigate } from "react-router-dom";
 import { useStaff } from "../../hooks/useStaff";
-import { useMinistry } from "../../hooks/useMinistryId";
-// import { useDepartment } from "../../hooks/useDepartmentId";
+import { useMinistry } from "../../hooks/useMinistries";
 import { ImCross } from "react-icons/im";
 
 function NominalPage() {
@@ -20,7 +19,6 @@ function NominalPage() {
     // console.log(data)
 
     const [selected, setSelected] = useState(null);
-    // const department = useDepartment(departmentId);
     const ministry = useMinistry(ministryId);
 
 
@@ -101,11 +99,11 @@ function NominalPage() {
                                 )}
                             </div>
                             <div className="font-merriweather">
-                                <h2 className="text-lg font-semibold text-gray-600">{s.full_name} ({s.gender})</h2>
+                                <h2 className="text-lg font-semibold text-gray-900">{s.full_name} ({s.gender})</h2>
                                 <p className="text-sm text-gray-600">{s.rank} ({s.level})</p>
                                 <p className="text-sm text-gray-600">{s.post} (Post)</p>
                                 <div className="flex gap-3">
-                                    <p className="text-sm text-gray-600 font-bold">
+                                    <p className="text-sm text-gray-700 font-bold">
                                         {s.native},
                                     </p>
                                     <p className="text-sm text-gray-600">{s.phone_num}</p>

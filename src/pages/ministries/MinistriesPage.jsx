@@ -1,27 +1,27 @@
 import { useState } from "react";
 import { useMinistries } from "../../hooks/useMinistries";
 import { useNavigate } from "react-router-dom";
-import MinistryCard from "../../components/ministryCard/MinistryCard";
+import CardForMDAs from "../../components/CardForMDAs/Card";
 
 function MinistriesPage() {
     const [page, setPage] = useState(1);
-    const { data, loading } = useMinistries({ page, pageSize: 12 });
+    const { data, loading, error } = useMinistries({ page, pageSize: 12 });
     const navigate = useNavigate();
     
-
     if (loading) return <p>Loading...</p>;
+    if (error) return <p>Unable to fetcch data.</p>;
 
-    const totalPages = Math.ceil(data.total / data.page_size);
+    const totalPages = Math.ceil(data?.total / data?.page_size);
     
     return (
         <div className="pt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {data.items.map(m => (
-                    <MinistryCard
+                {data?.items?.map(m => (
+                    <CardForMDAs
                         key={m.id} 
                         onClick={() => navigate(`/ministries/${m.id}/departments`)}
                         name={m.name}
-                        staffCount={m.staff_count}
+                        staffCount={`(${m.staff_count})`}
                     />
                 ))}
             </div>
