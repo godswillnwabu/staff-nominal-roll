@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import AbSG_Logo from "../../assets/logos/absg-logo.png"
-import { BsToggleOff, BsToggleOn } from "react-icons/bs";
+// import { BsToggleOff, BsToggleOn } from "react-icons/bs";
 
 function Navbar() {
 

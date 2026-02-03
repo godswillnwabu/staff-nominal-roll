@@ -24,7 +24,7 @@ function ImportMinistry() {
         <div className="w-full ">
             <form onSubmit={handleSubmit}>
                 <div className="py-6">
-                    <div className="flex justify-between gap-6">
+                    <div className="flex justify-between gap-3">
                         <label className="w-full px-6 py-2 bg-amber-600 text-white rounded-xl cursor-pointer hover:bg-amber-700 transition">
                             <input
                                 type="file"
@@ -33,7 +33,7 @@ function ImportMinistry() {
                                 className="hidden"
                                 required
                             />
-                            Select Excel file
+                            Select file
                         </label>
 
                         <input
@@ -46,11 +46,11 @@ function ImportMinistry() {
                             className="w-full no-spinner border border-gray-300 rounded-xl p-2 outline-none"
                             required
                         />
-                        {/* {isError && (
+                        {isError && (
                             <p className="text-red-600 text-sm mt-1">
                                 {error?.response?.data?.detail || "Something went wrong"}
                             </p>
-                        )} */}
+                        )}
                     </div>
                 </div>
 
@@ -65,12 +65,12 @@ function ImportMinistry() {
                         onClick={handleUpload}
                         className="py-2 px-6 bg-[#091022]/60 rounded-xl text-white text-center cursor-pointer hover:bg-[#091022]/90 transition"
                     >
-                        {isPending ? "Updating..." : "Update"}
+                        {isPending ? "Importing..." : "Import"}
                     </button>
                 </div>
 
                 {isError && <p className="text-red-600 text-sm">{error.message}</p>}
-                {isSuccess && <p className="text-green-600 text-sm">Import Successful</p>}
+                {isSuccess && <p className="text-green-600 text-sm">Imported Successfully</p>}
             </form>
         </div>
     )

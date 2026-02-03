@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getDepartments } from "../api/departments";
+import { useQuery } from "@tanstack/react-query";
+import { getDepartments, getDepartment } from "../api/departments";
 
 
 export function useDepartments({ ministryId, page = 1, pageSize = 9 } = {}) {
@@ -34,3 +35,11 @@ export function useDepartments({ ministryId, page = 1, pageSize = 9 } = {}) {
 
     return { data, loading, error };
 }
+
+
+export const useDepartment = (id) => 
+    useQuery({
+        queryKey: ["department", id],
+        queryFn: () => getDepartment(id),
+        enabled: !!id,
+    });

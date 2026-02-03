@@ -12,7 +12,7 @@ function GetMinistry() {
 
     return (
         <div className="w-full ">
-            <form action="" method="post">
+            <form onSubmit={(e) => e.preventDefault()}>
                 <div className="py-6">
                     <input
                         type="number"
@@ -29,8 +29,7 @@ function GetMinistry() {
                 {isLoading && <p className="font-bold text-center">Loading...</p>}
                 {isError && <p className="text-red-600 text-center">No Ministry Found</p>}
 
-                {data && 
-                    // <p className="text-green-600 text-center">{data.name}</p>
+                {data &&
                     <CardForMDAs
                         onClick={() => navigate(`/ministries/${data.id}/departments`)}
                         name={data.name}

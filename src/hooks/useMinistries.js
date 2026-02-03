@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { createMinistry, getMinistries, getMinistry, importMinistry } from "../api/ministries";
+import { createMinistry, getMinistries, getMinistry, importMinistry, updateMinistry, deleteMinistry } from "../api/ministries";
 
 
 export const useCreateMinistry = () => 
@@ -50,3 +50,11 @@ export const useMinistry = (id) =>
 
 export const useImportMinistry = () =>
     useMutation({ mutationFn: ({ file, ministryId }) => importMinistry(file, ministryId) });
+
+
+export const useUpdateMinistry = () =>
+    useMutation({ mutationFn: ({ id, data }) => updateMinistry(id, data) });
+
+
+export const useDeleteMinistry = () => 
+    useMutation({ mutationFn: (id) => deleteMinistry(id) });

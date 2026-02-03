@@ -3,6 +3,7 @@ import { useDebounce } from "../../hooks/useDebounce";
 import { useParams, useNavigate } from "react-router-dom";
 import { useStaff } from "../../hooks/useStaff";
 import { useMinistry } from "../../hooks/useMinistries";
+// import { useDepartment } from "../../hooks/useDepartments";
 import { ImCross } from "react-icons/im";
 
 function NominalPage() {
@@ -20,6 +21,8 @@ function NominalPage() {
 
     const [selected, setSelected] = useState(null);
     const ministry = useMinistry(ministryId);
+    // const department = useDepartment(departmentId);
+    // console.log(department.data)
 
 
     // Utility: fallback photo initials
@@ -106,7 +109,7 @@ function NominalPage() {
                                     <p className="text-sm text-gray-700 font-bold">
                                         {s.native},
                                     </p>
-                                    <p className="text-sm text-gray-600">{s.phone_num}</p>
+                                    <p className="text-sm text-gray-600">+234 {s.phone_num}</p>
                                 </div>
                                 <div className="flex gap-3">
                                     <p className="text-sm text-green-600">

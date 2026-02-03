@@ -22,3 +22,14 @@ export const importMinistry = (file, ministryId) => {
         body: formData,
     });
 };
+
+export const updateMinistry = (id, data) => 
+    apiFetch(`/ministries/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(data),
+    })
+
+export const deleteMinistry = (id) => 
+    apiFetch(`/ministries/${id}`, {
+        method: "DELETE",
+    })
