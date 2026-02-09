@@ -29,7 +29,12 @@ export const updateMinistry = (id, data) =>
         body: JSON.stringify(data),
     })
 
-export const deleteMinistry = (id) => 
-    apiFetch(`/ministries/${id}`, {
+// export const deleteMinistry = (id) => 
+//     apiFetch(`/ministries/${id}`, {
+//         method: "DELETE",
+//     })
+
+export const deleteMinistry = (name) => 
+    apiFetch(`/ministries?name=${encodeURIComponent(name)}`, {
         method: "DELETE",
     })

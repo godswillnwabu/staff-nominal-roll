@@ -9,7 +9,7 @@ function MinistriesPage() {
     const navigate = useNavigate();
     
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Unable to fetcch data.</p>;
+    if (error) return <p>Unable to fetch data.</p>;
 
     const totalPages = Math.ceil(data?.total / data?.page_size);
     

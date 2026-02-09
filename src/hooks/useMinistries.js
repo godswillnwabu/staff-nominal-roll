@@ -57,4 +57,4 @@ export const useUpdateMinistry = () =>
 
 
 export const useDeleteMinistry = () => 
-    useMutation({ mutationFn: (id) => deleteMinistry(id) });
+    useMutation({ mutationFn: deleteMinistry });

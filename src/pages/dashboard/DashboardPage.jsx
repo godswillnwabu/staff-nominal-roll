@@ -12,14 +12,14 @@ function DashboardPage() {
         <div className="pt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    <div className="order-1 h-fit bg-white shadow-lg rounded-xl p-3 hover:shadow-xl transition">
+                    <div className="order-2 h-fit bg-white shadow-lg rounded-xl p-3 hover:shadow-xl transition">
                         <DashboardCards
                             name={`Create Ministry`}
                         />
                         <CreateMinistry />
                     </div>
 
-                    <div className="order-2 h-fit bg-white shadow-lg rounded-xl p-3 hover:shadow-xl transition">
+                    <div className="order-1 h-fit bg-white shadow-lg rounded-xl p-3 hover:shadow-xl transition">
                         <DashboardCards
                             name={`Search Ministry`}
                         />

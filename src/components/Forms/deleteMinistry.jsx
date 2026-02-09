@@ -4,11 +4,11 @@ import { useDeleteMinistry } from "../../hooks/useMinistries";
 function DeleteMinistry() {
 
     const { mutate, isPending, isError, error, isSuccess } = useDeleteMinistry();
-    const [id, setId] = useState("");
+    const [name, setName] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        mutate(id);
+        mutate(name);
     }
 
     return (
@@ -16,13 +16,11 @@ function DeleteMinistry() {
             <form onSubmit={handleSubmit}>
                 <div className="py-6">
                     <input
-                        type="number"
-                        inputMode="numeric"
-                        pattern="[0-9]*"
-                        value={id}
-                        onChange={(e) => setId(e.target.value)}
-                        placeholder="Enter Ministry ID"
-                        className="no-spinner w-full border border-gray-300 rounded-xl p-2 outline-none"
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Enter Ministry Name"
+                        className="w-full border border-gray-300 rounded-xl p-2 outline-none"
                         required
                     />
                 </div>
